@@ -1,0 +1,25 @@
+The following CSS code snippet exhibits an uncommon error related to the specificity of CSS selectors:
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red;
+}
+
+#myDiv {
+  color: green;
+}
+
+#myDiv.container {
+  color: purple; 
+}
+
+#myDiv.container div {
+  color: yellow;
+}
+```
+
+In this example, the `#myDiv.container` selector has a higher specificity than `.container div` because ID selectors have higher precedence than class selectors, so the purple color will be applied. However, `#myDiv.container div` selector is more specific than `#myDiv.container` due to the nested div.  The specificity rules might lead to unexpected cascading behavior when using ID selectors in combination with classes and nested elements.
